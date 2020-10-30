@@ -1,0 +1,218 @@
+<html>
+
+<head>
+	<title>Шарипов Р.А. ЭАС-409 Лабораторная работа Вариант №</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+	<style>
+	#center {
+		text-align: center;
+	}
+	
+	h1 {
+		font-family: 'Times New Roman', Times, sans-serif;
+		font-size: 150%;
+	}
+	
+	p {
+		font-family: 'Times New Roman', Arial, Helvetica, sans-serif;
+		font-size: 15pt;
+	}
+	</style>
+	<script>
+	$(function() {
+		$("button").button();
+		$("#security").button({ disabled: true });
+		$("#technik").button({ disabled: true });
+		$("#start").button({ disabled: true });
+		$("#pause").button({ disabled: true });
+		$("#continue").button({ disabled: true });
+		$("#stop").button({ disabled: true });
+		$('#dialog').dialog({
+			width: 400,
+			autoOpen: false
+		});
+		$('#dialog2').dialog({
+			width: 400,
+			autoOpen: false
+		});
+		$('#open1').click(function(event) {
+			$('#dialog').dialog('open');
+		});
+		$("#slider").slider({
+			value: 1000,
+			min: 100,
+			max: 25000,
+			step: 100,
+			slide: function(event, ui) {
+				$("#amount").val(ui.value + " руб.");
+			}
+		});
+		$('#open2').click(function(event) {
+			$('#dialog2').dialog('open');
+		});
+		$("#slider2").slider({
+			value: 1000,
+			min: 100,
+			max: 25000,
+			step: 100,
+			slide: function(event, ui) {
+				$("#amount2").val(ui.value + " руб.");
+			}
+		});
+		$("#amount").val($("#slider").slider("value") + " руб.");
+		$("#amount2").val($("#slider2").slider("value") + " руб.");
+		$('#filtr1').click(function(event) {
+			$('#dialog').dialog('close');
+		});
+		$('#filtr2').click(function(event) {
+			$('#dialog2').dialog('close');
+		});
+		$('#tabs').tabs();
+		$("#checkbox-1").checkboxradio();
+		$('#example').DataTable({
+			"language": {
+				"zeroRecords": "Записей нет",
+				"search": "Поиск:"
+			},
+			"scrollCollapse": true,
+			"paging": false,
+			"info": false,
+			"autoWidth": true
+		});
+		var speedCanvas = document.getElementById("speedChart");
+		Chart.defaults.global.defaultFontFamily = "Lato";
+		Chart.defaults.global.defaultFontSize = 18;
+		var pop = {
+			"label": "Пополнения",
+			"data": [0, 10, 40],
+			"fill": true,
+			"backgroundColor": "rgba(44, 72, 212, 0.2)",
+			"borderColor": "rgba(44, 72, 212, 1)"
+		};
+		var spis = {
+			"label": "Списания",
+			"data": [0, 70, 30],
+			"fill": true,
+			"backgroundColor": "rgba(63, 115, 79, 0.2)",
+			"borderColor": "rgba(63, 115, 79, 1)"
+		};
+		var SD = {
+			"labels": [0, 10, 20],
+			"datasets": [pop, spis]
+		};
+		var chartOptions = {
+			legend: {
+				display: true,
+				position: 'top',
+				labels: {
+					boxWidth: 80,
+					fontColor: 'black'
+				}
+			}
+		};
+		var lineChart = new Chart(speedCanvas, {
+			type: 'line',
+			data: SD,
+			options: chartOptions
+		});
+
+	});
+	</script>
+</head>
+
+<body>
+	<div id="center">
+		<h1>Добро пожаловать в панель управления СРВ "Банкомат"</h1>
+		<p>Для начала работы перейдите во вкладку Управление</p>
+	</div>
+	<div id="tabs">
+		<ul>
+			<li><a href="#tabs-0">Управление</a></li>
+			<li><a href="#tabs-1">Список транзакций</a></li>
+			<li><a href="#tabs-2">График</a></li>
+			<li><a href="#tabs-3">Устранение аварийных ситуаций</a></li>
+		</ul>
+		<div id="tabs-0">
+			<fieldset>
+				<label for="checkbox-1">Автоматическое исправление аварийных ситуаций</label>
+				<input type="checkbox" name="checkbox-1" id="checkbox-1">
+				<br>
+				<br>
+				<button id="start">Начать симуляцию</button>
+				<button id="pause">Прервать симуляцию</button>
+				<button id="continue">Продолжить симуляцию</button>
+				<button id="stop">Закончить симуляцию</button>
+			</fieldset>
+			<br>
+			<fieldset>
+			<button id="open1">Настроить минимальную сумму списания средств</button>
+			<br>
+			<br>
+			<button id="open2">Настроить максимальную сумму пополнения</button>
+			</fieldset>
+			<div id="dialog" title="Минимальная сумма списания средств">
+				<div class="slider1" width="400">
+					<p>
+						<label for="amount">Выберите минимальную сумму, которую смогут списать клиенты</label>
+						<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> </p>
+					<div id="slider"></div>
+				</div>
+				<br>
+				<button id="filtr1">Применить</button>
+			</div>
+			<div id="dialog2" title="Минимальная сумма пополнения">
+				<div class="slider2" width="400">
+					<p>
+						<label for="amount2">Выберите максимальную сумму пополнения</label>
+						<input type="text" id="amount2" readonly style="border:0; color:#f6931f; font-weight:bold;"> </p>
+					<div id="slider2"></div>
+				</div>
+				<br>
+				<button id="filtr2">Применить</button>
+			</div>
+		</div>
+		<div id="tabs-1">
+			<table id="example" class="display" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>Тип транзакции</th>
+						<th>Имя клиента</th>
+						<th>Сумма</th>
+						<th>Время транзакции</th>
+						<th>Статус</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Пополнение</td>
+						<td>Полякова Юлия</td>
+						<td>350</td>
+						<td>15:29</td>
+						<td>Выполнено</td>
+					</tr>
+					<tr>
+						<td>Списание</td>
+						<td>Петров Юрий</td>
+						<td>200</td>
+						<td>15:40</td>
+						<td>Выполнено</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="tabs-2">
+			<canvas id="speedChart" width="600" height="400"></canvas>
+		</div>
+		<div id="tabs-3">
+			<button id="security">Вызвать службу охраны</button>
+			<br>
+			<br>
+			<button id="technik">Вызвать техника</button>
+		</div>
+	</div>
+</body>
