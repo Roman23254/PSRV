@@ -132,7 +132,7 @@
 							}
 
 							let min5=1
-							let max5=21
+							let max5=3
 							let error
 							error=Math.floor(Math.random() * (max5 - min5)) + min5
 							let date=new Date()
@@ -142,7 +142,7 @@
 
 							if ($('#checkbox-1').is(':checked')) { 
 								if (error==2 && r3==1){
-								$("#txt4").text(r3)
+								$("#txt6").text(r3)
 								$('#dialog8').dialog('open');
 								table2.row.add( [
 								nomero,
@@ -153,7 +153,7 @@
 							}
 
 							if (error==2 && r3==2){
-								$("#txt4").text(r3)
+								$("#txt6").text(r3)
 								$('#dialog8').dialog('open');
 								table2.row.add( [
 								nomero,
@@ -164,7 +164,7 @@
 							}
 
 							if (error==2 && r3==3){
-								$("#txt4").text(r3)
+								$("#txt6").text(r3)
 								$('#dialog8').dialog('open');
 								table2.row.add( [
 								nomero,
@@ -175,7 +175,7 @@
 							}
 
 							if (error==1 && r3==1){
-								$("#txt5").text(r3)
+								$("#txt7").text(r3)
 								$('#dialog9').dialog('open');
 								table2.row.add( [
 								nomero,
@@ -186,7 +186,7 @@
 							}
 
 							if (error==1 && r3==2){
-								$("#txt5").text(r3)
+								$("#txt7").text(r3)
 								$('#dialog9').dialog('open');
 								table2.row.add( [
 								nomero,
@@ -197,7 +197,7 @@
 							}
 
 							if (error==1 && r3==3){
-								$("#txt5").text(r3)
+								$("#txt7").text(r3)
 								$('#dialog9').dialog('open');
 								table2.row.add( [
 								nomero,
@@ -646,10 +646,10 @@
 	</div>
 
 	<div id="dialog8" title="Аварийная ситуация!!!">
-				Банкомат №<b id="txt4"></b> вышел из строя. Ошибка исправлена автоматически
+				Банкомат №<b id="txt6"></b> вышел из строя. Ошибка исправлена автоматически
 	</div>
 	<div id="dialog9" title="Аварийная ситуация!!!">
-				Банкомат №<b id="txt5"></b> был ограблен. Ошибка исправлена автоматически
+				Банкомат №<b id="txt7"></b> был ограблен. Ошибка исправлена автоматически
 	</div>
 
 	<div id="dialog4" title="Оповещение">
@@ -687,6 +687,7 @@
 		</ul>
 		<div id="tabs-0">
 			<fieldset>
+				<legend>Настройка работы симуляции</legend>
 				<label for="checkbox-1">Автоматическое исправление аварийных ситуаций</label>
 				<input type="checkbox" name="checkbox-1" id="checkbox-1">
 				<br>
@@ -696,6 +697,7 @@
 			</fieldset>
 			<br>
 			<fieldset>
+				<legend>Настройка допустимой суммы транзакций</legend>
 			<button id="open1">Настроить минимальную сумму транзакции</button>
 			<br>
 			<br>
