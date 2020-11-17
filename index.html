@@ -22,22 +22,55 @@
 		font-family: 'Times New Roman', Arial, Helvetica, sans-serif;
 		font-size: 15pt;
 	}
+	.blink {
+        background: red !important;
+    }
 	</style>
 	<script>
 		var timer1=[]
 		var i = 0
 		var names = [ "Норина Людмила", "Ярощук Александра", "Веденеева Варвара", "Баженова Полина", "Густокашина Альбина", "Талызина Кристина", "Касатая Ольга", "Николина Лиана", "Панова Вероника", "Горева Милена", "Порошина Евдокия", "Алиева Юнона", "Гнусарева Ефросинья", "Швечикова Диана", "Салко Рената", "Липова Регина", "Чадова Ника", "Яненко Василиса", "Полыгалова Нона", "Рясная Эмма", "Циолковская Элеонора", "Семерикова Маргарита", "Пономарева Дарья", "Вавилова Ярослава", "Якутина Наталия", "Яковленко Тамара", "Кузик Софья", "Савватимова Ульяна", "Бальсунова Рада", "Андрюшина Лилия", "Абоимова Каролина", "Минаева Анисья", "Клепахова Зоя", "Машукова Лада", "Викариева Римма", "Антонович Мария", "Ухтомская Нина", "Яглинцева Доминика", "Ялбачева Изольда", "Ельцина Анастасия", "Ипатьева Берта", "Тарасова Христина", "Полищука Всеслава", "Скуратова Майя", "Игнатенкова Фаина", "Бурова Антонина", "Масмех Ангелина", "Булатова Розалия", "Захарова Ксения", "Кутузова Вера", "Токарева Инна", "Бесфамильнова Эльвира", "Модзалевская Инесса", "Чернакова Эвелина", "Суворова Галина", "Оболенская Марфа", "Перова Ева", "Кузина Таисия", "Эйбоженко Роза", "Якушкина Лидия", "Корявова Валентина", "Кетова Марта", "Корепанова Ефросиния", "Цыцына Надежда", "Барсукова Любовь", "Левченко Анфиса", "Грибакина Клара", "Курзыбова Агафья", "Килиц Эмилия", "Исакова Владислава", "Бабанова Ирина", "Лаер Алла", "Толоконская Дина", "Маркина Жанна", "Магазинер Владлена", "Головаха Стела", "Гавриленкова Любава", "Жернакова Светлана", "Булка Ариадна", "Мячикова Елизавета", "Ярошенко Виктория", "Герцая Юлия", "Корнейчука Екатерина", "Ивашечкина Изабелла", "Ягубова Анна", "Разбойникова Аза", "Михальченко Яна", "Кузьмова Марианна", "Паулкина Лариса", "Тимашева Оксана", "Николаева Наталья", "Сабанцева Раиса", "Яцковская Алина", "Тюшнякова Агния", "Батрутдинова Кира", "Полешко Зинаида", "Лаврентьева Злата", "Филимонова Елена", "Немцова Ираида", "Алленова Янина", "Панков Ульян", "Статник Парфен", "Верещагин Пимен", "Машарин Тимур", "Горелов Игорь", "Астанков Кондратий", "Соболев Фадей", "Ермолин Валерьян", "Шипеев Виссарион", "Типалов Никанор", "Ядрищенский Макар", "Завражин Фома", "Ярков Феликс", "Набутов Петр", "Карандашов Денис", "Флёров Сигизмунд", "Новожилов Евсей", "Русаков Евстигней", "Котов Ефим", "Ярошинский Владилен", "Вельдин Тарас", "Пузаков Мстислав", "Гайдук Викентий", "Черенчиков Константин", "Зиновьев Ян", "Аристархов Пахом", "Авилов Данила", "Грузов Владислав", "Ростовцев Лукьян", "Пушкин Самуил", "Низов Юрий", "Рыжков Потап", "Дюженков Ярослав", "Привалов Венедикт", "Бандуркин Всеслав", "Кауфман Роман", "Зворыгин Арсений", "Щекочихин Евгений", "Крючков Артемий", "Кравец Алексей", "Шкиряк Вацлав", "Роговский Мечислав", "Воронцов Виталий", "Койтасбаев Глеб", "Локтионов Вячеслав", "Гик Артём", "Чан Иннокентий", "Маклаков Онисим", "Боголепов Эрнст", "Кудяшов Даниил", "Апалков Бронислав", "Муленко Святослав", "Жабин Александр", "Фролов Богдан", "Филиппов Валентин", "Пода Мартын", "Витаев Феофан", "Цур-Милен Федор", "Бобров Борислав", "Сальников Ерофей", "Мурогов Ростислав", "Малинов Герман", "Кравцев Радион", "Шпикалов Станислав", "Гулин Феоктист", "Щеголев Зиновий", "Булдаков Адриан", "Бобриков Павел", "Викаш Карп", "Горбунков Платон", "Трындин Фока", "Гришко Илья", "Калдярв Андриян", "Митрохов Владимир", "Кадников Гаврила", "Сюсин Руслан", "Сапожников Сидор", "Мичуев Иосиф", "Халтурин Марк", "Сиянцев Клавдий", "Климцов Осип", "Гибазов Захар", "Яшуков Дементий", "Барановский Емельян", "Горюшин Изяслав", "Батурин Эмиль", "Карпюк Агап", "Ширманов Олег", "Кочнев Тит", "Хесман Лука", "Бобр Порфирий", "Мельников Остап", "Жаглин Карл", "Шеин Лев", "Катькин Егор", "Золотарёв Терентий", "Снытко Михаил", "Строганов Трофим", "Гриневец Рубен", "Пестов Прокофий","Вася Пупкин" ];
 	$(function() {
+		var loveblink;
+        function blink() {
+            loveblink = setInterval(()=> {
+                $(".ui-tabs-tab:last-child").toggleClass("blink")
+            }, 500)
+        }
+			var bankomat = [true,true,true]
+			var text1 = "Включен"
+			var text2 = "Выключен"
+			var text3 = ""
+			var text4 = "Вышел из строя"
+			var values1 = 1
+			var values2 = 302
+			var error1 = 0
+			var error2 = 0
+			var error3 = 0
+			var error11 = 0
+			var error22 = 0
+			var error33 = 0
 			var nomer = 1
+			var nomero = 1
+
 		$("#start").click(function(){
+			table2.clear();
+            table2.draw();
+			$('#dialog1').dialog('open');
 					$("#start").button({ disabled: true });
 					$("#stop").button({ disabled: false });
+					$("#off1").button({ disabled: false });
+					$("#off2").button({ disabled: false });
+					$("#off3").button({ disabled: false });
+					$("#txt1").text(text1)
+					$("#txt2").text(text1)
+					$("#txt3").text(text1)
 			var col1 = 500000
 			var col2 = 500000
 			var col3 = 500000
 					timer = setInterval(()=>{
-						let min=5000
-						let max=10000
+						let min=2000
+						let max=5000
 						let tranz
 						let t1
 						t1=Math.floor(Math.random() * (max - min)) + min
@@ -46,7 +79,7 @@
 							let max4=3
 							let r1
 							r1=Math.floor(Math.random() * (max4 - min4)) + min4
-							console.log(r1)
+
 							if (r1==1){
 								tranz="Пополнение"
 							}
@@ -63,8 +96,18 @@
 							let r3
 							r3=Math.floor(Math.random() * (max3 - min3)) + min3
 
-							let min2=1
-							let max2=302
+							if (r3==1 && !bankomat[0]){
+								return
+							}
+							else if (r3==2 && !bankomat[1]){
+								return
+							}
+							else if (r3==3 && !bankomat[2]){
+								return
+							}
+
+							let min2=values1
+							let max2=values2
 							let r2
 							r2=Math.floor(Math.random() * (max2 - min2)) + min2
 							r2=r2*100
@@ -88,10 +131,194 @@
 								col3=col3-r2
 							}
 
+							let min5=1
+							let max5=21
+							let error
+							error=Math.floor(Math.random() * (max5 - min5)) + min5
 							let date=new Date()
 							let hh=date.getHours()<10?"0"+date.getHours():date.getHours()
 							let mm=date.getMinutes()<10?"0"+date.getMinutes():date.getMinutes()
 							let ss=date.getSeconds()<10?"0"+date.getSeconds():date.getSeconds()
+
+							if ($('#checkbox-1').is(':checked')) { 
+								if (error==2 && r3==1){
+								$("#txt4").text(r3)
+								$('#dialog8').dialog('open');
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Поломка"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+
+							if (error==2 && r3==2){
+								$("#txt4").text(r3)
+								$('#dialog8').dialog('open');
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Поломка"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+
+							if (error==2 && r3==3){
+								$("#txt4").text(r3)
+								$('#dialog8').dialog('open');
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Поломка"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+
+							if (error==1 && r3==1){
+								$("#txt5").text(r3)
+								$('#dialog9').dialog('open');
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Ограбление"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+
+							if (error==1 && r3==2){
+								$("#txt5").text(r3)
+								$('#dialog9').dialog('open');
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Ограбление"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+
+							if (error==1 && r3==3){
+								$("#txt5").text(r3)
+								$('#dialog9').dialog('open');
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Ограбление"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+							}
+							else{
+
+							if (error==2 && r3==1){
+								bankomat[0]=false
+								$("#txt4").text(r3)
+								$('#dialog3').dialog('open');
+								$("#technik").button({ disabled: false });
+								$("#off"+r3).button({ disabled: true });
+								$("#on"+r3).button({ disabled: true });
+								$("#txt1").text(text4);
+								error1=r3
+								loveblink==null?blink():false
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Поломка"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+
+							if (error==2 && r3==2){
+								bankomat[1]=false
+								$("#txt4").text(r3)
+								$('#dialog3').dialog('open');
+								$("#technik").button({ disabled: false });
+								$("#off2").button({ disabled: true });
+								$("#on2").button({ disabled: true });
+								$("#txt2").text(text4)
+								error2=r3
+								loveblink==null?blink():false
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Поломка"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+
+							if (error==2 && r3==3){
+								bankomat[2]=false
+								$("#txt4").text(r3)
+								$('#dialog3').dialog('open');
+								$("#technik").button({ disabled: false });
+								$("#off3").button({ disabled: true });
+								$("#on3").button({ disabled: true });
+								$("#txt3").text(text4)
+								error3=r3
+								loveblink==null?blink():false
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Поломка"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+
+							if (error==1 && r3==1){
+								bankomat[0]=false
+								$("#txt5").text(r3)
+								$('#dialog5').dialog('open');
+								$("#security").button({ disabled: false });
+								$("#off"+r3).button({ disabled: true });
+								$("#on"+r3).button({ disabled: true });
+								$("#txt1").text(text4);
+								error11=r3
+								loveblink==null?blink():false
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Ограбление"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+
+							if (error==1 && r3==2){
+								bankomat[1]=false
+								$("#txt5").text(r3)
+								$('#dialog5').dialog('open');
+								$("#security").button({ disabled: false });
+								$("#off2").button({ disabled: true });
+								$("#on2").button({ disabled: true });
+								$("#txt2").text(text4)
+								error22=r3
+								loveblink==null?blink():false
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Ограбление"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+
+							if (error==1 && r3==3){
+								bankomat[2]=false
+								$("#txt5").text(r3)
+								$('#dialog5').dialog('open');
+								$("#security").button({ disabled: false });
+								$("#off3").button({ disabled: true });
+								$("#on3").button({ disabled: true });
+								$("#txt3").text(text4)
+								error33=r3
+								loveblink==null?blink():false
+								table2.row.add( [
+								nomero,
+								hh+":"+mm+":"+ss,
+                    			"Ограбление"
+                			] ).draw(true)
+								nomero=nomero+1
+							}
+						}
+
+
 							table1.row.add( [
 								nomer,
                     			tranz,
@@ -117,6 +344,24 @@
 		$("#stop").click(function(){
 			$("#start").button({ disabled: false });
 			$("#stop").button({ disabled: true });
+			$("#off1").button({ disabled: true });
+			$("#off2").button({ disabled: true });
+			$("#off3").button({ disabled: true });
+			$("#on1").button({ disabled: true });
+			$("#on2").button({ disabled: true });
+			$("#on3").button({ disabled: true });
+			$("#technik").button({ disabled: true });
+			$("#security").button({ disabled: true });
+			$("#txt1").text(text3)
+			$("#txt2").text(text3)
+			$("#txt3").text(text3)
+			error1 = 0
+			error2 = 0
+			error3 = 0
+			error11 = 0
+			error22 = 0
+			error33 = 0
+
                     clearInterval(timer)
                     for(i1=0;i1<=i;i1++){
                         clearTimeout(timer1[i1])
@@ -132,12 +377,116 @@
                         });
                         lineChart.update();
                     }
+            values1 = 1
+			values2 = 302
+			bankomat[0]= true
+			bankomat[1]= true
+			bankomat[2]= true
+			nomer = 1
+			nomero = 1
+			clearInterval(loveblink)
+			$(".blink").removeClass("blink")
+			loveblink=null
+			$('#dialog7').dialog('open');
+                })
+		$("#off1").click(function(){
+		bankomat[0] = false
+		$("#on1").button({ disabled: false });
+		$("#off1").button({ disabled: true });
+		$("#txt1").text(text2)
+                })
+		$("#off2").click(function(){
+		bankomat[1] = false
+		$("#on2").button({ disabled: false });
+		$("#off2").button({ disabled: true });
+		$("#txt2").text(text2)
+                })
+		$("#off3").click(function(){
+		bankomat[2] = false
+		$("#on3").button({ disabled: false });
+		$("#off3").button({ disabled: true });
+		$("#txt3").text(text2)
+                })
+		$("#on1").click(function(){
+		bankomat[0] = true
+		$("#on1").button({ disabled: true });
+		$("#off1").button({ disabled: false });
+		$("#txt1").text(text1)
+                })
+		$("#on2").click(function(){
+		bankomat[1] = true
+		$("#on2").button({ disabled: true });
+		$("#off2").button({ disabled: false });
+		$("#txt2").text(text1)
+                })
+		$("#on3").click(function(){
+		bankomat[2] = true
+		$("#on3").button({ disabled: true });
+		$("#off3").button({ disabled: false });
+		$("#txt3").text(text1)
+                })
+		$("#filtr1").click(function(){
+			values1 = $( "#slider" ).slider( "option","value" );
+			values1 = values1/100
+			console.log(values1)
+                })
+		
+		$("#filtr2").click(function(){
+			values2 = $( "#slider2" ).slider( "option","value" );
+			values2 = values2/100
+			console.log(values2)
+                })
+		$("#technik").click(function(){
+			if (error1==1){
+				$("#on1").button({ disabled: false });
+				$("#txt1").text(text2)
+			}
+			if (error2==2){
+				$("#on2").button({ disabled: false });
+				$("#txt2").text(text2)
+			}
+			if (error3==3){
+				$("#on3").button({ disabled: false });
+				$("#txt3").text(text2)
+			}
+			error1=0
+			error2=0
+			error3=0
+			$("#technik").button({ disabled: true });
+			$('#dialog4').dialog('open');
+			if (error11==0 && error22==0 && error33==0){
+			clearInterval(loveblink)
+			$(".blink").removeClass("blink")
+			loveblink=null}
+                })
+		$("#security").click(function(){
+			if (error11==1){
+				$("#on1").button({ disabled: false });
+				$("#txt1").text(text2)
+			}
+			if (error22==2){
+				$("#on2").button({ disabled: false });
+				$("#txt2").text(text2)
+			}
+			if (error33==3){
+				$("#on3").button({ disabled: false });
+				$("#txt3").text(text2)
+			}
+			error11=0
+			error22=0
+			error33=0
+			$("#security").button({ disabled: true });
+			$('#dialog6').dialog('open');
+			if (error1==0 && error2==0 && error3==0){
+			clearInterval(loveblink)
+			$(".blink").removeClass("blink")
+			loveblink=null}
                 })
 		$("button").button();
 		$("#security").button({ disabled: true });
 		$("#technik").button({ disabled: true });
-		$("#open1").button({ disabled: true });
-		$("#open2").button({ disabled: true });
+		$("#open1").button({ disabled: false });
+		$("#open2").button({ disabled: false });
 		$("#off1").button({ disabled: true });
 		$("#on1").button({ disabled: true });
 		$("#off2").button({ disabled: true });
@@ -146,6 +495,14 @@
 		$("#on3").button({ disabled: true });
 		$("#start").button({ disabled: false });
 		$("#stop").button({ disabled: true });
+		$('#dialog3').dialog({
+			width: 400,
+			autoOpen: false
+		});
+		$('#dialog4').dialog({
+			width: 400,
+			autoOpen: false
+		});
 		$('#dialog').dialog({
 			width: 400,
 			autoOpen: false
@@ -154,13 +511,37 @@
 			width: 400,
 			autoOpen: false
 		});
+		$('#dialog1').dialog({
+			width: 400,
+			autoOpen: false
+		});
+		$('#dialog5').dialog({
+			width: 400,
+			autoOpen: false
+		});
+		$('#dialog6').dialog({
+			width: 400,
+			autoOpen: false
+		});
+		$('#dialog8').dialog({
+			width: 400,
+			autoOpen: false
+		});
+		$('#dialog9').dialog({
+			width: 400,
+			autoOpen: false
+		});
+		$('#dialog7').dialog({
+			width: 600,
+			autoOpen: false
+		});
 		$('#open1').click(function(event) {
 			$('#dialog').dialog('open');
 		});
 		$("#slider").slider({
-			value: 1000,
+			value: 100,
 			min: 100,
-			max: 25000,
+			max: 10000,
 			step: 100,
 			slide: function(event, ui) {
 				$("#amount").val(ui.value + " руб.");
@@ -170,8 +551,8 @@
 			$('#dialog2').dialog('open');
 		});
 		$("#slider2").slider({
-			value: 1000,
-			min: 100,
+			value: 10000,
+			min: 10000,
 			max: 25000,
 			step: 100,
 			slide: function(event, ui) {
@@ -195,6 +576,16 @@
 			},
 			"scrollCollapse": true,
 			"paging": false,
+			"info": false,
+			"autoWidth": true
+		});
+		var table2=$('#oshib').DataTable({
+			"language": {
+				"zeroRecords": "Записей нет",
+			},
+			"scrollCollapse": true,
+			"paging": false,
+			"sDom": "lrtip",
 			"info": false,
 			"autoWidth": true
 		});
@@ -247,6 +638,41 @@
 </head>
 
 <body>
+	<div id="dialog3" title="Аварийная ситуация!!!">
+				Банкомат №<b id="txt4"></b> вышел из строя. Перейдите во вкладку "Устранение аварийных ситуаций" и вызовите техника
+	</div>
+	<div id="dialog5" title="Аварийная ситуация!!!">
+				Банкомат №<b id="txt5"></b> был ограблен. Перейдите во вкладку "Устранение аварийных ситуаций" и вызовите службу охраны
+	</div>
+
+	<div id="dialog8" title="Аварийная ситуация!!!">
+				Банкомат №<b id="txt4"></b> вышел из строя. Ошибка исправлена автоматически
+	</div>
+	<div id="dialog9" title="Аварийная ситуация!!!">
+				Банкомат №<b id="txt5"></b> был ограблен. Ошибка исправлена автоматически
+	</div>
+
+	<div id="dialog4" title="Оповещение">
+				Банкомат успешно починен! Перейдите во вкладку "Сервер" и включите нужные банкоматы
+	</div>
+
+	<div id="dialog6" title="Оповещение">
+				Служба охраны успешно вернула деньги обратно! Перейдите во вкладку "Сервер" и включите нужные банкоматы
+	</div>
+
+	<div id="dialog7" title="Оповещение">
+				Симуляция успешно завершена! Ниже представлены ошибки, возникшие в ходе симуляции
+				<table id="oshib" class="display" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>Номер ошибки</th>
+						<th>Время ошибки</th>
+						<th>Тип ошибки</th>
+					</tr>
+				</thead>
+			</table>
+	</div>
+
 	<div id="center">
 		<h1>Добро пожаловать в панель управления СРВ "Банкомат"</h1>
 		<p>Для начала работы перейдите во вкладку Управление</p>
@@ -265,35 +691,39 @@
 				<input type="checkbox" name="checkbox-1" id="checkbox-1">
 				<br>
 				<br>
-				<button id="start">Начать симуляцию</button>
+				<button id="start" class="btn btn-success">Начать симуляцию</button>
 				<button id="stop">Закончить симуляцию</button>
 			</fieldset>
 			<br>
 			<fieldset>
-			<button id="open1">Настроить минимальную сумму списания средств</button>
+			<button id="open1">Настроить минимальную сумму транзакции</button>
 			<br>
 			<br>
-			<button id="open2">Настроить максимальную сумму пополнения</button>
+			<button id="open2">Настроить максимальную сумму транзакции</button>
 			</fieldset>
-			<div id="dialog" title="Минимальная сумма списания средств">
+			<div id="dialog" title="Минимальная сумма транзакции">
 				<div class="slider1" width="400">
 					<p>
-						<label for="amount">Выберите минимальную сумму, которую смогут списать клиенты</label>
+						<label for="amount">Выберите минимальную сумму, доступную для транзакций</label>
 						<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> </p>
 					<div id="slider"></div>
 				</div>
 				<br>
 				<button id="filtr1">Применить</button>
 			</div>
-			<div id="dialog2" title="Минимальная сумма пополнения">
+			<div id="dialog2" title="Максимальная сумма транзакции">
 				<div class="slider2" width="400">
 					<p>
-						<label for="amount2">Выберите максимальную сумму пополнения</label>
+						<label for="amount2">Выберите максимальную сумму, доступную для транзакций</label>
 						<input type="text" id="amount2" readonly style="border:0; color:#f6931f; font-weight:bold;"> </p>
 					<div id="slider2"></div>
 				</div>
 				<br>
 				<button id="filtr2">Применить</button>
+			</div>
+
+			<div id="dialog1" title="Оповещение">
+				Симуляция началась, перейдите во вкладку "Список транзакций" или во вкладку "График"
 			</div>
 		</div>
 		<div id="tabs-4">
@@ -301,21 +731,21 @@
 			<legend>Управление банкоматом №1</legend>
 			<button id="off1">Отключить банкомат</button>
 			<button id="on1">Включить банкомат</button>
-			<br><br>Состояние банкомата -
+			<br><br>Состояние банкомата - <b id="txt1"></b>
 			</fieldset>
 			<br>
 			<fieldset>
 			<legend>Управление банкоматом №2</legend>
 			<button id="off2">Отключить банкомат</button>
 			<button id="on2">Включить банкомат</button>
-			<br><br>Состояние банкомата -
+			<br><br>Состояние банкомата - <b id="txt2"></b>
 			</fieldset>
 			<br>
 			<fieldset>
 			<legend>Управление банкоматом №3</legend>
 			<button id="off3">Отключить банкомат</button>
 			<button id="on3">Включить банкомат</button>
-			<br><br>Состояние банкомата -
+			<br><br>Состояние банкомата - <b id="txt3"></b>
 			</fieldset>
 		</div>	
 		<div id="tabs-1">
