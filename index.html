@@ -624,7 +624,26 @@
 				labels: {
 					boxWidth: 80,
 					fontColor: 'black'
-				}
+				},
+				 "scales": {
+                            "xAxes": [{
+                                  "scaleLabel": {
+                                    "display": true,
+                                    "labelString": "Время",
+                                    "fontColor": "blue"
+                                  }
+                            }],
+                            "yAxes": [{
+                                "scaleLabel": {
+                                    "display": true,
+                                    "labelString": "Рублей",
+                                    "fontColor": "blue"
+                                  },
+                                "ticks": {
+                                    "beginAtZero": true
+                                }
+                            }]
+                        }
 			}
 		};
 		var lineChart = new Chart(speedCanvas, {
