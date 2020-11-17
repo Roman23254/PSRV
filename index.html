@@ -624,27 +624,24 @@
 				labels: {
 					boxWidth: 80,
 					fontColor: 'black'
-				},
+				}},
 				 "scales": {
                             "xAxes": [{
                                   "scaleLabel": {
                                     "display": true,
                                     "labelString": "Время",
-                                    "fontColor": "blue"
+                                    "fontColor": "black"
                                   }
                             }],
                             "yAxes": [{
                                 "scaleLabel": {
                                     "display": true,
-                                    "labelString": "Рублей",
-                                    "fontColor": "blue"
-                                  },
-                                "ticks": {
-                                    "beginAtZero": true
-                                }
+                                    "labelString": "Количество денег в банкомате, руб.",
+                                    "fontColor": "black"
+                                  }
                             }]
                         }
-			}
+			
 		};
 		var lineChart = new Chart(speedCanvas, {
 			type: 'line',
